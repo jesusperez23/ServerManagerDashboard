@@ -1,0 +1,12 @@
+<p>perciosbebetercios works!</p>
+
+<input type="button" [routerLink]="['/toRoute']" value="volver">
+<div *ngIf="id >= 0">
+    <p *ngFor="let item of items;">
+        {{item}}
+    </p>
+    <div>
+        SelectedItem: {{items[id]}} 
+    </div>
+</div>
+
