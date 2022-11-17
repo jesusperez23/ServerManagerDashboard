@@ -24,6 +24,11 @@ const routes: Routes = [
         (m) => m.PerciosbebeterciosModule
       ),
   },
+  {
+    path: "**",
+    loadChildren: () =>
+      import("./components/canvas/canvas.module").then((m) => m.CanvasModule),
+  },
 ];
 
 @NgModule({

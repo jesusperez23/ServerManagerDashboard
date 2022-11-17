@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, ParamMap } from "@angular/router";
+import { takeUntil } from "rxjs";
 import { CommunicationsService } from "src/app/services/communications.service";
 
 @Component({
@@ -17,8 +18,11 @@ export class OtakuComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.id = Number(params.get("id"));
-      this.communicationService.setStorage(this.id);
+      //this.id = Number(params.get("id"));
+      this.communicationService.setStorage(Number(params.get("id")));
+    });
+    this.communicationService.getStorage$().subscribe((id: number) => {
+      this.id = id;
     });
   }
 
