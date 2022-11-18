@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Iserver } from "../model/server.interface";
 
 @Injectable({
   providedIn: "root",
@@ -20,5 +21,13 @@ export class ServerService {
         headers,
       }
     );
+  }
+  public getServer(): Observable<Iserver[]> {
+    const headers = new HttpHeaders({
+      Authorization: "Bearer julenverne",
+    });
+    return this.http.get<Iserver[]>(`${this.baseRoute}/server`, {
+      headers,
+    });
   }
 }

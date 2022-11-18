@@ -1,0 +1,5 @@
+<p>server-list works!</p>
+
+<p *ngFor="let server of listado">
+    {{server.name}}<input type="button" (click)="openServer(server)"  value={{server.name}}>
+</p>

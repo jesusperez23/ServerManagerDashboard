@@ -1,3 +1,38 @@
 <p>canvas works!</p>
 
+<p>
+    {{serverInformation.name}}
+</p>
+<div *ngFor="let log of serverInformation.logs">
+    <p>
+    {{log.type}}
+    </p>
+    <p>
+    {{log.name}}
+    </p>
+    <p>
+    {{log.serverName}}
+    </p>
+    <p>
+    {{log.content}}
+    </p>     
+<div>
+    <p>
+        ---------------------------
+    </p>
+<div *ngFor="let script of serverInformation.scripts">
+    <p>
+        {{script.type}}
+        </p>
+        <p>
+        {{script.name}}
+        </p>
+        <p>
+        {{script.serverName}}
+        </p>
+        <p>
+        {{script.content}}
+        </p>      
+</div>
+
 <textarea *ngIf="textContent !== ''" rows="10" cols="100">{{textContent}}</textarea>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Iserver } from "src/app/model/server.interface";
 import { ServerService } from "src/app/services/server.service";
 
 @Component({
@@ -8,19 +10,23 @@ import { ServerService } from "src/app/services/server.service";
 })
 export class CanvasComponent implements OnInit {
   public textContent = "";
+  public serverInformation: Iserver;
 
-  constructor(private serverService: ServerService) {}
+  constructor(private serverService: ServerService, private route: Router) {
+    this.serverInformation =
+      this.route.getCurrentNavigation()?.extras.state?.server;
+  }
 
   ngOnInit(): void {
-    this.serverService
-      .getFile("sardina.sh", "perciosbebetercios", "SCRIPT")
-      .subscribe(
-        (res: any) => {
-          this.textContent = res.response;
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+    // this.serverService
+    //   .getFile("sardina.sh", "perciosbebetercios", "SCRIPT")
+    //   .subscribe(
+    //     (res: any) => {
+    //       this.textContent = res.response;
+    //     },
+    //     (err) => {
+    //       console.log(err);
+    //     }
+    //   );
   }
 }
