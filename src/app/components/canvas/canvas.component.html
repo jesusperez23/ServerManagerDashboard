@@ -2,37 +2,54 @@
 
 <p>
     {{serverInformation.name}}
+    {{serverInformation | json}}
 </p>
-<div *ngFor="let log of serverInformation.logs">
-    <p>
-    {{log.type}}
-    </p>
-    <p>
-    {{log.name}}
-    </p>
-    <p>
-    {{log.serverName}}
-    </p>
-    <p>
-    {{log.content}}
-    </p>     
+
 <div>
+    <div>
+        <input type="button" (click)="showForm()"  value="Mostar forma">
+        <app-file-form *ngIf="formEnabled" [server]="serverInformation"></app-file-form>
+    </div>
+</div>
+
+
+    <div *ngIf="serverInformation?.scripts?.length">
+        <div *ngFor="let script of serverInformation.scripts">
+            <p>
+                {{script.type}}
+                </p>
+                <p>
+                {{script.name}}
+                </p>
+                <p>
+                {{script.serverName}}
+                </p>
+                <p>
+                {{script.content}}
+                </p>      
+        </div>
+    </div>
+
     <p>
         ---------------------------
     </p>
-<div *ngFor="let script of serverInformation.scripts">
-    <p>
-        {{script.type}}
-        </p>
-        <p>
-        {{script.name}}
-        </p>
-        <p>
-        {{script.serverName}}
-        </p>
-        <p>
-        {{script.content}}
-        </p>      
-</div>
+    <div *ngIf="serverInformation?.logs?.length">
+        <div *ngFor="let log of serverInformation.logs">
+            <p>
+            {{log.type}}
+            </p>
+            <p>
+            {{log.name}}
+            </p>
+            <p>
+            {{log.serverName}}
+            </p>
+            <p>
+            {{log.content}}
+            </p>     
+        <div>
+    
+    </div>
+
 
 <textarea *ngIf="textContent !== ''" rows="10" cols="100">{{textContent}}</textarea>

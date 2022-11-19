@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Iserver } from "../model/server.interface";
+import { Ifile, Iserver } from "../model/server.interface";
 
 @Injectable({
   providedIn: "root",
@@ -29,5 +29,11 @@ export class ServerService {
     return this.http.get<Iserver[]>(`${this.baseRoute}/server`, {
       headers,
     });
+  }
+  public createFile(file: Ifile): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: "Bearer julenverne",
+    });
+    return this.http.post(`${this.baseRoute}/server`, file, { headers });
   }
 }

@@ -1,0 +1,27 @@
+<p>File creation form</p>
+<form [formGroup]="formGroup" (ngSubmit)="sendForm()">
+    <label>Type</label>
+    <select formControlName="type" type="text">
+        <option value="SCRIPT">SCRIPT</option>
+        <option value="LOG">LOG</option>
+      </select>
+      <div>
+          <label>fileName</label>
+          <input formControlName="name" type="text"/>
+      </div>
+    <div>
+        <div>
+            <label>content</label>
+        </div>
+        <div>
+            <textarea formControlName="content" type="text" rows="10" cols="100"></textarea>
+        </div>
+    </div>
+    <div>
+    <button [disabled]="!formGroup.valid" type="submit">Enviar</button>
+    </div>
+</form>
+
+<div>
+    {{inputData | json}}
+</div>

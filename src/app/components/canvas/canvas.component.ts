@@ -11,6 +11,7 @@ import { ServerService } from "src/app/services/server.service";
 export class CanvasComponent implements OnInit {
   public textContent = "";
   public serverInformation: Iserver;
+  public formEnabled = false;
 
   constructor(private serverService: ServerService, private route: Router) {
     this.serverInformation =
@@ -28,5 +29,8 @@ export class CanvasComponent implements OnInit {
     //       console.log(err);
     //     }
     //   );
+  }
+  public showForm() {
+    this.formEnabled = !this.formEnabled;
   }
 }

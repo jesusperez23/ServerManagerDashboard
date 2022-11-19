@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CanvasComponent } from './canvas.component';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
+import { CanvasComponent } from "./canvas.component";
 
-const routes: Routes = [{ path: '', component: CanvasComponent }];
+const routes: Routes = [{ path: "", component: CanvasComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CanvasRoutingModule { }
+export class CanvasRoutingModule {}
