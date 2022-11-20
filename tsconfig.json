@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "strictNullChecks": false,
     "baseUrl": "./",
     "strictPropertyInitialization": false,
     "outDir": "./dist/out-tsc",

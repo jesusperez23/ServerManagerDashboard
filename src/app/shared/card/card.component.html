@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="flexBox">
+        <div *ngFor="let element of content" class="SubChild"> 
+            {{element}} 
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="buttonCenter flexBox">
+        <div *ngFor="let action of actions">
+            <input type="button" (click)="onActionClicked(action)"  value={{action}}>
+        </div>
+    </mat-card-actions>
+</mat-card>

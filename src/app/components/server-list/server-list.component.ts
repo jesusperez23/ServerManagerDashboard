@@ -16,7 +16,15 @@ export class ServerListComponent implements OnInit {
   ngOnInit(): void {
     this.serverService.getServer().subscribe(
       (res: Iserver[]) => {
-        this.listado = res;
+        this.listado = res.map((server: Iserver) => {
+          return {
+            ...server,
+            cardContent: [
+              `Scripts:${server.scripts.length}`,
+              `Logs:${server.logs.length}`,
+            ],
+          };
+        });
       },
       (err) => {
         console.log(err);
@@ -26,5 +34,11 @@ export class ServerListComponent implements OnInit {
 
   public openServer(server: Iserver) {
     this.router.navigate(["canvas"], { state: { server: server } });
+  }
+
+  public actionsButton(event: any) {
+    if (event.event === "Open") {
+      this.openServer(event.object);
+    }
   }
 }

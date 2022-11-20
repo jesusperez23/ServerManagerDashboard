@@ -1,9 +1,4 @@
-<p>canvas works!</p>
-
-<p>
-    {{serverInformation.name}}
-    {{serverInformation | json}}
-</p>
+{{serverInformation.name}}
 
 <div>
     <div>
@@ -12,8 +7,21 @@
     </div>
 </div>
 
+<label>LOGS</label>
+<div  class="flexBox">
+    <ng-container *ngFor="let log of serverInformation.logs" class="child">
+        <app-card [title]="log.name" [content]="log.cardContent" [actions]="[]" [objectToReturn]="log" (actionClick)="actionsButton($event)"></app-card>
+    </ng-container>
+</div>
+<label>SCRIPTS</label>
+<div  class="flexBox">
+    <ng-container *ngFor="let script of serverInformation.scripts" class="child">
+        <app-card [title]="script.name" [content]="script.cardContent" [actions]="[]" [objectToReturn]="script" (actionClick)="actionsButton($event)"></app-card>
+    </ng-container>
+</div>
 
-    <div *ngIf="serverInformation?.scripts?.length">
+
+    <!-- <div *ngIf="serverInformation?.scripts?.length">
         <div *ngFor="let script of serverInformation.scripts">
             <p>
                 {{script.type}}
@@ -49,7 +57,4 @@
             </p>     
         <div>
     
-    </div>
-
-
-<textarea *ngIf="textContent !== ''" rows="10" cols="100">{{textContent}}</textarea>
+    </div> -->

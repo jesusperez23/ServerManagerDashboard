@@ -1,0 +1,16 @@
+.flexBox{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.child{
+    max-width: 20%;
+    margin: 0.5%;
+}
+.SubChild{
+    width: 50%;
+}
+.buttonCenter{
+    text-align: center;
+
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { Iserver } from "src/app/model/server.interface";
+import { Ifile, Iserver } from "src/app/model/server.interface";
 import { ServerService } from "src/app/services/server.service";
 
 @Component({
@@ -19,18 +19,26 @@ export class CanvasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.serverService
-    //   .getFile("sardina.sh", "perciosbebetercios", "SCRIPT")
-    //   .subscribe(
-    //     (res: any) => {
-    //       this.textContent = res.response;
-    //     },
-    //     (err) => {
-    //       console.log(err);
-    //     }
-    //   );
+    this.serverInformation.scripts = this.serverInformation.scripts.map(
+      (script: Ifile) => {
+        return {
+          ...script,
+          cardContent: [`${script.content}`],
+        };
+      }
+    );
+    this.serverInformation.logs = this.serverInformation.logs.map(
+      (log: Ifile) => {
+        return {
+          ...log,
+          cardContent: [`${log.content}`],
+        };
+      }
+    );
   }
   public showForm() {
     this.formEnabled = !this.formEnabled;
   }
+
+  public actionsButton(event: any) {}
 }
