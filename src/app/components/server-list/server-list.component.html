@@ -1,5 +1,5 @@
 <div  class="flexBox">
     <ng-container *ngFor="let server of listado" class="child">
-        <app-card [title]="server.name" [content]="server.cardContent" [actions]="['Open']" [objectToReturn]="server" (actionClick)="actionsButton($event)"></app-card>
+        <app-card class="element" [title]="server.name" [content]="server.cardContent" [actions]="['Open']" [objectToReturn]="server" (actionClick)="actionsButton($event)"></app-card>
     </ng-container>
 </div>
